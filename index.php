@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<!--TheFreeElectron 2015, http://www.instructables.com/member/TheFreeElectron/ -->
+<!-- This is borrowed from and enhanced version of TheFreeElectron 2015, http://www.instructables.com/member/TheFreeElectron/ -->
 
 <html>
     <head>
