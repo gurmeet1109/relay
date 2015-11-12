@@ -12,18 +12,18 @@ if (isset ( $_GET["pin"] )) {
 	if ( (is_numeric($pin)) && ($pin <= 40) && ($pin >= 0) ) {
 		
 		//set the gpio's mode to output		
-		system("gpio mode  ".$pin." out");
+		system("gpio mode -g ".$pin." out");
 		
 		//reading pin's status
-		exec ("gpio read ".$pin, $status, $return );
+		exec ("gpio read -g ".$pin, $status, $return );
 		
 		//set the gpio to high/low
 		if ($status[0] == "0" ) { $status[0] = "1"; }
 		else if ($status[0] == "1" ) { $status[0] = "0"; }
-		system("gpio write ".$pin." ".$status[0] );
+		system("gpio write -g ".$pin." ".$status[0] );
 		
 		//reading pin's status
-		exec ("gpio read ".$pin, $status, $return );
+		exec ("gpio read -g ".$pin, $status, $return );
 		
 		//print it to the client on the response
 		echo($status[0]);
