@@ -20,12 +20,12 @@ var button_12 = document.getElementById("button_12");
 var Buttons = [ button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, button_10, button_11, button_12 ];
 
 //This function is asking for gpio.php, receiving datas and updating the index.php pictures
-function change_pin ( pic ) {
+function change_pin ( pin ) {
 var data = 0;
 //send the pic number to gpio.php for changes
 //this is the http request
 	var request = new XMLHttpRequest();
-	request.open( "GET" , "gpio.php?pic=" + pic, true);
+	request.open( "GET" , "gpio.php?pin=" + pin, true);
 	request.send(null);
 	//receiving informations
 	request.onreadystatechange = function () {
