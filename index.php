@@ -10,14 +10,16 @@
     <body style="background-color: black;">
     <!-- On/Off button's picture -->
 	<?php
-	$val_array = array(17,27,22,5,18,23,24,25,12,13,19,26);
+	
+	$pin_array = array(17,27,22,5,18,23,24,25,12,13,19,26);
+	$val_array = array(0,0,0,0,0,0,0,0,0,0,0,0);
 	
 
 	//this php script generate the first page in function of the file
 	for ( $i= 0; $i<12; $i++) {
 		//set the pin's mode to output and read them
-		system("gpio mode ".$val_array[$i]." out");
-		exec ("gpio read ".$i, $val_array[$i], $return );
+		system("gpio mode ".$pin_array[$i]." out");
+		exec ("gpio read ".$pin_array[$i], $val_array[$i], $return );
 	}
 	
 	//for loop to read the value and output corresponding image
