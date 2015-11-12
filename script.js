@@ -16,7 +16,6 @@ var_button_11 = document.getElementById("button_11");
 var button_12 = document.getElementById("button_12");
 
 
-
 //Create an array for easy access later
 var Buttons = [ button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, button_10, button_11, button_12 ];
 
