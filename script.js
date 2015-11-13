@@ -22,6 +22,7 @@ var Buttons = [ button_1, button_2, button_3, button_4, button_5, button_6, butt
 //This function is asking for gpio.php, receiving datas and updating the index.php pictures
 function change_pin ( pin ) {
 var data = 0;
+var position = 0;
 //send the pic number to gpio.php for changes
 //this is the http request
 	var request = new XMLHttpRequest();
@@ -31,12 +32,14 @@ var data = 0;
 	request.onreadystatechange = function () {
 		if (request.readyState == 4 && request.status == 200) {
 			data = request.responseText;
-			//update the index pic
+			var position = Buttons.indexof(data);
+			
+			//update the pic by array index
 			if ( !(data.localeCompare("0")) ){
-				Buttons[pin].src = "data/img/red/red.jpg";
+				Buttons.[position].src = "data/img/red/red.jpg";
 			}
 			else if ( !(data.localeCompare("1")) ) {
-				Buttons[pin].src = "data/img/green/green.jpg";
+				Buttons[position].src = "data/img/green/green.jpg";
 			}
 			else if ( !(data.localeCompare("fail"))) {
 				alert ("Something went wrong!" );
