@@ -42,22 +42,22 @@ var position = 0;
 				Buttons[position].src = "data/img/green/green.jpg";
 			}
 			else if ( !(data.localeCompare("fail"))) {
-				alert ("Something went wrong!" );
+				alert ("Something went wrong!  1" );
 				return ("fail");			
 			}
 			else {
-				alert ("Something went wrong!" );
+				alert ("Something went wrong!  2" );
 				return ("fail"); 
 			}
 		}
 		//test if fail
 		else if (request.readyState == 4 && request.status == 500) {
-			alert ("server error");
+			alert ("server error 1");
 			return ("fail");
 		}
 		//else 
 		else if (request.readyState == 4 && request.status != 200 && request.status != 500 ) { 
-			alert ("Something went wrong!");
+			alert ("Something went wrong! 3");
 			return ("fail"); }
 	}	
 	
