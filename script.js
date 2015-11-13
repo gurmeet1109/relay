@@ -34,7 +34,7 @@ var position = 0;
 	request.onreadystatechange = function () {
 		if (request.readyState == 4 && request.status == 200) {
 			data = request.responseText;
-			var position = pin_array.indexof(data);
+			var position = pin_array.indexof(pin);
 			
 			//update the pic by array index
 			if ( !(data.localeCompare("0")) ){
