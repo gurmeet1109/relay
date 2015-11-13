@@ -15,8 +15,10 @@ var_button_10 = document.getElementById("button_10");
 var_button_11 = document.getElementById("button_11");
 var button_12 = document.getElementById("button_12");
 
+// This array needs be copied -same to same- from index.php
+var pin_array = [17,27,22,5,18,23,24,25,12,13,19,26];
 
-//Create an array for easy access later
+//Array to hold poition of button images
 var Buttons = [ button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, button_10, button_11, button_12 ];
 
 //This function is asking for gpio.php, receiving datas and updating the index.php pictures
@@ -32,7 +34,7 @@ var position = 0;
 	request.onreadystatechange = function () {
 		if (request.readyState == 4 && request.status == 200) {
 			data = request.responseText;
-			var position = Buttons.indexof(data);
+			var position = pin_array.indexof(data);
 			
 			//update the pic by array index
 			if ( !(data.localeCompare("0")) ){
