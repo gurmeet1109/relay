@@ -36,7 +36,7 @@ var position = 0;
 			
 			//update the pic by array index
 			if ( !(data.localeCompare("0")) ){
-				Buttons.[position].src = "data/img/red/red.jpg";
+				Buttons[position].src = "data/img/red/red.jpg";
 			}
 			else if ( !(data.localeCompare("1")) ) {
 				Buttons[position].src = "data/img/green/green.jpg";
