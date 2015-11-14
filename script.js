@@ -1,7 +1,7 @@
 ﻿//TheFreeElectron 2015, http://www.instructables.com/member/TheFreeElectron/
 //JavaScript, uses pictures as buttons, sends and receives values to/from the Rpi
 //These are all the buttons
-// var button_0 = document.getElementById("button_0");
+var button_0 = document.getElementById("button_0");
 var button_1 = document.getElementById("button_1");
 var button_2 = document.getElementById("button_2");
 var button_3 = document.getElementById("button_3");
@@ -13,13 +13,13 @@ var_button_8 = document.getElementById("button_8");
 var_button_9 = document.getElementById("button_9");
 var_button_10 = document.getElementById("button_10");
 var_button_11 = document.getElementById("button_11");
-var button_12 = document.getElementById("button_12");
+//var button_12 = document.getElementById("button_12");
 
 // This array needs be copied -same to same- from index.php
 var pin_array = [17,27,22,5,18,23,24,25,12,13,19,26];
 
 //Array to hold poition of button images
-var Buttons = [ button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, button_10, button_11, button_12 ];
+var Buttons = [ button_0, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, button_10, button_11 ];
 
 //This function is asking for gpio.php, receiving datas and updating the index.php pictures
 function change_pin ( pin ) {
