@@ -23,24 +23,40 @@
 	}
 	
 
+	echo ("<Table>");
+
+	echo ("<TR>");
+
 	//for loop to read the value and output corresponding image
+	//First for loop set for the 0-3 gpio pins
 	for ($i = 0; $i < 12; $i++) {
 		//if off
 		if ($val_array[$i][0] == 0 ) {
-			echo ("<img id='button_".$i."' src='data/img/red/red.jpg' onclick='change_pin($pin_array[$i]);'/>");
+		
+		echo ("<img id='button_".$i."' src='data/img/red/red.jpg' onclick='change_pin($pin_array[$i]);'/>");
 			echo ( $pin_array[$i] );
 			echo ( "&nbsp" );
 			echo ( $val_array[$i][0] );
 		}
+
 		//if on
 		if ($val_array[$i][0] == 1 ) {
-			echo ("<img id='button_".$i."' src='data/img/green/green.jpg' onclick='change_pin($pin_array[$i]);'/>");
+		echo ("<img id='button_".$i."' src='data/img/green/green.jpg' onclick='change_pin($pin_array[$i]);'/>");
 			echo ( $pin_array[$i] );
 			echo ( "&nbsp" );
 			echo ( $val_array[$i][0] );
+		}
+
+	if( $i%4 == 0) {
+		echo ("</TR><TR>");
 		}	 
 	}
-	?>
+	
+	echo ("</TR>");
+
+	echo ("</TABLE>");
+
+?>
 	 
 	<!-- javascript -->
 	<script src="script.js"></script>
