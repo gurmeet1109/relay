@@ -13,10 +13,10 @@ var_button_8 = document.getElementById("button_8");
 var_button_9 = document.getElementById("button_9");
 var_button_10 = document.getElementById("button_10");
 var_button_11 = document.getElementById("button_11");
-//var button_12 = document.getElementById("button_12");
+
 
 // This array needs be copied -same to same- from index.php
-var pin_array = [17,27,22,5,18,23,24,25,12,13,19,26];
+var pin_array = [ 17, 27, 22, 5, 18, 23, 24, 25, 12, 13, 19, 26 ];
 
 //Array to hold poition of button images
 var Buttons = [ button_0, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, button_10, button_11 ];
@@ -34,8 +34,8 @@ var position = 0;
 	request.onreadystatechange = function () {
 		if (request.readyState == 4 && request.status == 200) {
 			data = request.responseText;
-			var position = pin_array.indexof(pin);
-			
+			var position = pin_array.indexOf(pin);
+						
 			//update the pic by array index
 			if ( !(data.localeCompare("0")) ){
 				Buttons[position].src = "data/img/red/red.jpg";
