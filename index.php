@@ -8,6 +8,7 @@
     </head>
  
     <body style="background-color: gray;">
+
     <!-- On/Off button's picture -->
 	<?php
 	
@@ -34,7 +35,7 @@
 	//if off
 	if ($val_array[$i][0] == 0 ) {
 	
-		echo ("<img id='button_".$i."' src='data/img/red/red.jpg' onclick='change_pin($pin_array[$i]);'/>");
+		echo ("<td><img id='button_".$i."' src='data/img/red/red.jpg' onclick='change_pin($pin_array[$i]);'/></td>");
 //		echo ( $pin_array[$i] );
 //		echo ( "&nbsp" );
 //		echo ( $val_array[$i][0] );
@@ -42,13 +43,13 @@
 
 	//if on
 	if ($val_array[$i][0] == 1 ) {
-	echo ("<img id='button_".$i."' src='data/img/green/green.jpg' onclick='change_pin($pin_array[$i]);'/>");
+	echo ("<td><img id='button_".$i."' src='data/img/green/green.jpg' onclick='change_pin($pin_array[$i]);'/></td>");
 //		echo ( $pin_array[$i] );
 //		echo ( "&nbsp" );
 //		echo ( $val_array[$i][0] );
 	}
 
-	if( $i%4 == 0) {
+	if( ($i+1)%4 == 0) {
 		echo ("\n</tr><tr>");
 		}	 
 	}
