@@ -7,7 +7,7 @@
         <title>Relay Module Control Panel</title>
     </head>
  
-    <body style="background-color: gray;">
+    <body style="background-color:black;">
 
     <!-- On/Off button's picture -->
 	<?php
