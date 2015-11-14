@@ -1,4 +1,4 @@
-﻿//TheFreeElectron 2015, http://www.instructables.com/member/TheFreeElectron/
+//TheFreeElectron 2015, http://www.instructables.com/member/TheFreeElectron/
 //JavaScript, uses pictures as buttons, sends and receives values to/from the Rpi
 //These are all the buttons
 var button_0 = document.getElementById("button_0");

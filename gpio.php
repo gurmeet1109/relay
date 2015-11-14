@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //Adapted from -> TheFreeElectron 2015, http://www.instructables.com/member/TheFreeElectron/
 
 //This page is requested by the JavaScript, it updates the pin's status and then print it
