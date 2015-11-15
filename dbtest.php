@@ -9,7 +9,6 @@
  
     <body style="background-color:gray;">
 
-    <!-- On/Off button's picture -->
 	<?php
 
 	//Initialization
@@ -41,42 +40,12 @@
 	}	
 
 
-	//this php script generate the first page in function of the file
-	for ( $i= 0; $i<12; $i++) {
-		//set the pin's mode to output and read them
-		system("gpio -g mode ".$pin_array[0][$i]." out");
-		exec ("gpio -g read ".$pin_array[0][$i], $val_array[$i], $return );
-	}
-	
-
 	echo ("<table>");
-
 	echo ("<tr>");
 
-	//for loop to read the value and output corresponding image
-	//First for loop set for the 0-3 gpio pins
-	for ($i = 0; $i < 12; $i++) {
-	
-	//if off
-	if ($val_array[$i][0] == 0 ) {
-	
-		echo ("<td><img id='button_".$i."' src='data/img/red/red.jpg' onclick='change_pin($pin_array[$i]);'/><br>$dev_array[$i]<br>$surge_array[$i] 
-<br>.</td>");
-//		echo ( $pin_array[0][$i] );
-//		echo ( "&nbsp" );
-//		echo ( $val_array[$i][0] );
-	}
-
-	//if on
-	if ($val_array[$i][0] == 1 ) {
-	echo ("<td><img id='button_".$i."' src='data/img/green/green.jpg' onclick='change_pin($pin_array[$i]);'/><br>$dev_array[$i]<br>$surge_array[$i]<br>.</td>");
-
-//		echo ( $pin_array[0][$i] );
-//		echo ( "&nbsp" );
-//		echo ( $val_array[$i][0] );
-	}
-
-	if( ($i+1)%4 == 0) {
+	for($i=0; $i<12; $i++) {
+		echo ( $pin_array[$i]);
+		if( ($i+1)%4 == 0) {
 		echo ("\n</tr><tr>");
 		}	 
 	}
