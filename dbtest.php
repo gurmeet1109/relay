@@ -12,26 +12,26 @@
 	<?php
 
 	//Initialization
-        $val_array = array(0,0,0,0,0,0,0,0,0,0,0,0);
-	$pin_array = array();	
-	$dev_array = array();
+//        $val_array = array(0,0,0,0,0,0,0,0,0,0,0,0);
+//	$pin_array = array();	
+//	$dev_array = array();
 	$surge_array = array();
 
 	
 
         //Database code - Population of Master Data
-        $dbhandle = sqlite_open('relaydb');
-        $pin_resultset = sqlite_array_query($dbhandle, 'Select pins from tblpins', SQLITE_ASSOC);
-        $dev_resultset = sqlite_array_query($dbhandle, 'Select devices from tbldevices', SQLITE_ASSOC);
-        &surge_resultset = sqlite_array_query($dbhandle, 'Select protect_enabled from tblsurgeprotection', SQLITE_ASSOC);
+        $dbhandle = sqlite_open('relaydb.sqlite');
+//        $pin_resultset = sqlite_array_query($dbhandle, 'Select pins from tblpins', SQLITE_ASSOC);
+  //      $dev_resultset = sqlite_array_query($dbhandle, 'Select devices from tbldevices', SQLITE_ASSOC);
+      &surge_resultset = sqlite_array_query($dbhandle, 'Select protect_enabled from tblsurgeprotection', SQLITE_ASSOC);
 	sqlite_close($dbhandle);
 
 
-	$counter = 0
-	while ($pin_rs = $pin_resultset->fetchArray(SQLITE_ASSOC)) {
-		$pin_array[$counter] = $pin_rs['pins'];
-		++counter;
-	}
+//	$counter = 0
+//	while ($pin_rs = $pin_resultset->fetchArray(SQLITE_ASSOC)) {
+//		$pin_array[$counter] = $pin_rs['pins'];
+//		++counter;
+//	}
 
 	$counter = 0;
 	foreach ($surge_resultset AS $surge_entry) {
@@ -44,7 +44,7 @@
 	echo ("<tr>");
 
 	for($i=0; $i<12; $i++) {
-		echo ( $pin_array[$i]);
+		echo ( $surge_array[$i]);
 		if( ($i+1)%4 == 0) {
 		echo ("\n</tr><tr>");
 		}	 
