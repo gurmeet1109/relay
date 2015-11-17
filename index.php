@@ -11,6 +11,14 @@
 
     <!-- On/Off button's picture -->
 	<?php
+
+
+	//MySQL code to fetch values from Database
+	$pin_rs
+	$device_rs
+	$surge_rs
+
+	
 	
 	$pin_array = array(17,27,22,5,18,23,24,25,12,13,19,26);
 	$val_array = array(0,0,0,0,0,0,0,0,0,0,0,0);
