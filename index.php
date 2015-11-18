@@ -12,6 +12,11 @@
 	<?php
 
 
+	$val_array = array(0,0,0,0,0,0,0,0,0,0,0,0);
+	$pin_array();
+	$dev_array();
+	$surge_array();
+
 	//MySQL code to fetch values from Database
 	//---------------------------------------
 
@@ -50,26 +55,25 @@
 	}
 	
 	
-	//Surge protection enabled data from database
+	//Surge protection data from database
 	$i = 0;
 	if($rssurge->num_rows > 0) {
 		while($row = $rssurge->fetch_assoc()) {
-			$surge_array[i] = $row["surgeprotectionenabled
+			$surge_array[i] = $row["protect_enabled"];
+			i++;
+		}
+	}
 	
 	
 	
-	$pin_array = array(17,27,22,5,18,23,24,25,12,13,19,26);
-	$val_array = array(0,0,0,0,0,0,0,0,0,0,0,0);
-	$dev_array = array("Motor", "Pedestal Fan", "CFL", "Cooler", "Chanting Machine", "Bulb Cluster", "Incasedent Bulb", "LED Lamp", "Bulb Cluster", "Table 
-Fan", "Ceiling Fan", "Tube Light" );
-	$surge_array = array("Surge Protection - IC", "Surge Protection - IC", "Surge Protection - IC", "Surge Protection - IC", "Unprotected", "Unprotected", 
-"Unprotected", "Unprotected", "Surge Protection - RC", "Surge Protection - RC", "Surge Protection - RC", "Surge Protection - RC");  
-
-
 	//Close database connection. We are done selecting rows from database
 	$conn->close();
+	
+	//---------------------------------------------------------------
+	//Done database code
 
 
+	//Page initialization - Initialize GPIO pins to OUT
 	//this php script generate the first page in function of the file
 	for ( $i= 0; $i<12; $i++) {
 		//set the pin's mode to output and read them
