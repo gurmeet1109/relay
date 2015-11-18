@@ -9,15 +9,53 @@
  
     <body style="background-color:gray;">
 
-    <!-- On/Off button's picture -->
 	<?php
 
 
 	//MySQL code to fetch values from Database
-	$pin_rs
-	$device_rs
-	$surge_rs
+	//---------------------------------------
 
+	//Database connection
+	$conn = new mysqli(localhost, "root", "welcome", "relaydb");
+	if ($conn->connect_error) {
+		die("Connection failed ".$conn->connect_error);
+	}
+	
+	//Read data - Select Queries
+	$rspins = $conn->query("Select pins from tblpins");
+	$rsdevices = $conn->query("Select devices from tbldevices");
+	$rssurge = $conn->query("Select protection_enalbed from tblsurgeprotection"):
+
+	
+	//GPIO Pin data from database
+	$i=0;
+	if($rspins->num_rows > 0) {
+		while($row = $rspins->fetch_assoc()) {
+			$pin_array[i] = $row["pins"];
+			i++;
+		}
+	} else {
+		echo ("Error fetching pin data from database");
+	}
+
+	//Pre-configured connected Device data from database
+	$i = 0;
+	if($rsdevices->num_rows > 0) {
+		while($row = $rsdevices->fetch_assoc()) {
+			$dev_array[i] = $row["devices"];
+			i++;
+		}
+	} else {
+		echo ("Error fetching device data from database");
+	}
+	
+	
+	//Surge protection enabled data from database
+	$i = 0;
+	if($rssurge->num_rows > 0) {
+		while($row = $rssurge->fetch_assoc()) {
+			$surge_array[i] = $row["surgeprotectionenabled
+	
 	
 	
 	$pin_array = array(17,27,22,5,18,23,24,25,12,13,19,26);
@@ -26,6 +64,11 @@
 Fan", "Ceiling Fan", "Tube Light" );
 	$surge_array = array("Surge Protection - IC", "Surge Protection - IC", "Surge Protection - IC", "Surge Protection - IC", "Unprotected", "Unprotected", 
 "Unprotected", "Unprotected", "Surge Protection - RC", "Surge Protection - RC", "Surge Protection - RC", "Surge Protection - RC");  
+
+
+	//Close database connection. We are done selecting rows from database
+	$conn->close();
+
 
 	//this php script generate the first page in function of the file
 	for ( $i= 0; $i<12; $i++) {
