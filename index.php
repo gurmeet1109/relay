@@ -14,7 +14,7 @@
 	ini_set('display_errors', 'On');
  	error_reporting(E_ALL | E_STRICT);	
 
-	$debug_flag = 1;
+	$debug_flag = 0;
 	
 	$val_array = array(0,0,0,0,0,0,0,0,0,0,0,0);
 	$pin_array;
@@ -119,7 +119,8 @@
 	}
 	
 
-	echo ("<table>");
+	echo ("<table>\n");
+	echo (" <font color=\"blue\" size=\"2\">\n");
 
 	echo ("<tr>");
 
@@ -130,8 +131,8 @@
 	//if off
 	if ($val_array[$i][0] == 0 ) {
 	
-		echo ("<td><img id='button_".$i."' src='data/img/red/red.jpg' onclick='change_pin($pin_array[$i]);'/><br>$dev_array[$i]<br>$surge_array[$i] 
-<br>");
+		echo ("<td><img id='button_".$i."' src='data/img/red/red.jpg' onclick='change_pin($pin_array[$i]);'/><br>$dev_array[$i]<br>$surge_array[$i]<br>");
+
 		echo ( $pin_array[$i] );
 		echo ( "&nbsp" );
 		echo ( $val_array[$i][0] );
@@ -155,7 +156,7 @@
 	
 	echo ("\n</tr>");
 
-	echo ("\n</table>");
+	echo ("\n</font>\n</table>");
 
 ?>
 	 

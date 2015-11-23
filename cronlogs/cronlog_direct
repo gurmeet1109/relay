@@ -1,0 +1,42 @@
+BASH=/bin/bash
+BASHOPTS=cmdhist:complete_fullquote:extquote:force_fignore:hostcomplete:interactive_comments:progcomp:promptvars:sourcepath
+BASH_ALIASES=()
+BASH_ARGC=()
+BASH_ARGV=()
+BASH_CMDS=()
+BASH_LINENO=([0]="0")
+BASH_SOURCE=([0]="./sw25on")
+BASH_VERSINFO=([0]="4" [1]="3" [2]="42" [3]="1" [4]="release" [5]="armv7l-unknown-linux-gnueabihf")
+BASH_VERSION='4.3.42(1)-release'
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+DIRSTACK=()
+EUID=1000
+GROUPS=()
+HOME=/home/alarm
+HOSTNAME=alarmpi
+HOSTTYPE=armv7l
+IFS=$' \t\n'
+LANG=C
+LOGNAME=alarm
+MACHTYPE=armv7l-unknown-linux-gnueabihf
+MAIL=/var/spool/mail/alarm
+OPTERR=1
+OPTIND=1
+OSTYPE=linux-gnueabihf
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin
+PIPESTATUS=([0]="0")
+PPID=805
+PS4='+ '
+PWD=/home/alarm/relay/cronjobs
+SHELL=/bin/bash
+SHELLOPTS=braceexpand:hashall:interactive-comments
+SHLVL=8
+SSH_CLIENT='192.168.20.120 14471 22'
+SSH_CONNECTION='192.168.20.120 14471 192.168.20.117 22'
+SSH_TTY=/dev/pts/0
+TERM=xterm
+UID=1000
+USER=alarm
+XDG_RUNTIME_DIR=/run/user/1000
+XDG_SESSION_ID=c1
+_=
