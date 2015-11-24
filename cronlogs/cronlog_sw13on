@@ -24,7 +24,7 @@ OSTYPE=linux-gnueabihf
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin
 PIPESTATUS=([0]="0")
 POSIXLY_CORRECT=y
-PPID=596
+PPID=1067
 PS4='+ '
 PWD=/home/alarm
 SHELL=/bin/sh

@@ -16,6 +16,15 @@
 
 	$debug_flag = 0;
 	
+	//Workout instance id
+	$mac = exec("cat /sys/class/net/eth0/address", $abc[0], $def);
+	$macadd = str_replace(":", "", $mac);
+	$OS= exec("uname -r | cut -d- -f3", $abc[0], $def);
+	$hw = exec("cat /proc/cpuinfo | grep Hardware | cut -d: -f 2 | cut -d\" \" -f 2", $abc[0], $def);
+	$hwserial = exec("cat /proc/cpuinfo | grep Serial | cut -d: -f 2 | cut -d\" \" -f 2", $abc[0], $def);
+	$instanceid = $macadd.$OS.$hw.$hwserial;
+	echo $instanceid;
+
 	$val_array = array(0,0,0,0,0,0,0,0,0,0,0,0);
 	$pin_array;
 	$dev_array;
@@ -24,6 +33,7 @@
 	function console_log( $data ){
   		echo 'console.log('. json_encode( $data ) .')';
 	}
+
 
 
 	//MySQL code to fetch values from Database
@@ -107,7 +117,7 @@
 	}
 	
 	//---------------------------------------------------------------
-	//Done database code
+	//Done database initilization code
 
 
 	//Page initialization - Initialize GPIO pins to OUT
@@ -118,8 +128,9 @@
 		exec ("gpio -g read ".$pin_array[$i], $val_array[$i], $return );
 	}
 
-	date_default_timezone_set('Asia/Calcutta');
-	echo date('Y-m-d')."  ".date('h:i:s')."\n";	
+	// PHP Datetime
+	//date_default_timezone_set('Asia/Calcutta');
+	//echo date('Y-m-d')."  ".date('h:i:s')."\n";	
 
 	echo ("<table>\n");
 	echo (" <font color=\"blue\" size=\"2\">\n");
@@ -130,15 +141,32 @@
 	//First for loop set for the 0-3 gpio pins
 	for ($i = 0; $i < 12; $i++) {
 	
+
+        //Database connection to insert transactional data
+        $conn = new mysqli("localhost", "root", "welcome", "relaydb");
+        if ($conn->connect_error) {
+                die("Connection failed ".$conn->connect_error);
+        }
+
+	
+
 	//if off
 	if ($val_array[$i][0] == 0 ) {
 	
 		echo ("<td><img id='button_".$i."' src='data/img/red/red.jpg' onclick='change_pin($pin_array[$i]);'/><br>$dev_array[$i]<br>$surge_array[$i]<br>");
-
+		
 		echo ( $pin_array[$i] );
 		echo ( "&nbsp" );
 		echo ( $val_array[$i][0] );
 		echo ( "</td>" );
+		
+		//Database transaction insert
+//		$insert = conn->query("INSERT INTO tblrelaytransactions (instanceid, gpiopin, device, switchmode, triggersource, timestamp)
+//		 VALUES ($instanceid, $pin_array[$i], 'Motor', '1', 'Web Interface', NOW())");
+
+//		$insert = conn->query("INSERT INTO tblrelaytransactions (instanceid, gpiopin, device, switchmode, triggersource, timestamp) VALUES ('123', 
+// '13', 'Motor', 1, 'Web Interface', NOW())");
+
 	}
 
 	//if on
@@ -149,6 +177,8 @@
 		echo ( "&nbsp" );
 		echo ( $val_array[$i][0] );
 		echo ( "</td>" );
+
+
 	}
 
 	if( ($i+1)%4 == 0) {
@@ -159,6 +189,7 @@
 	echo ("\n</tr>");
 
 	echo ("\n</font>\n</table>");
+	$conn->close();
 
 ?>
 	 
