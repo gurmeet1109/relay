@@ -117,7 +117,9 @@
 		system("gpio -g mode ".$pin_array[$i]." out");
 		exec ("gpio -g read ".$pin_array[$i], $val_array[$i], $return );
 	}
-	
+
+	date_default_timezone_set('Asia/Calcutta');
+	echo date('Y-m-d')."\n";	
 
 	echo ("<table>\n");
 	echo (" <font color=\"blue\" size=\"2\">\n");
