@@ -1,0 +1,18 @@
+gpio -g mode 17 out
+gpio -g mode 27 out
+gpio -g mode 22 out
+gpio -g mode 05 out
+// problematic pin - floating gpio -g mode 06 out
+gpio -g mode 12 out
+gpio -g mode 13 out
+gpio -g mode 19 out
+gpio -g mode 26 out
+gpio -g mode 18 out
+gpio -g mode 23 out
+gpio -g mode 24 out
+gpio -g mode 25 out
+gpio -g mode 12 out
+gpio -g mode 16 out
+gpio -g mode 20 out
+gpio -g mode 21 out
+

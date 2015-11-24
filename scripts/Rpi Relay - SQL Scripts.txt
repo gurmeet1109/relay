@@ -1,0 +1,57 @@
+SQLite
+-------
+CREATE TABLE "tblpins" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , "pins" TEXT NOT NULL  UNIQUE );
+CREATE TABLE "tbldevices" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , "devices" TEXT NOT NULL  DEFAULT Empty);
+CREATE TABLE "tblsurgeprotection" ("id" \INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , "protect_enabled" TEXT NOT NULL  DEFAULT Unprotected);
+
+
+MySQL
+-------
+CREATE TABLE `tblpins` (`id` int(2) NOT NULL AUTO_INCREMENT, `pins` int(2) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `tbldevices` (`id` int(2) NOT NULL AUTO_INCREMENT, `devices` TEXT(50) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `tblsurgeprotection` (`id` int(2) NOT NULL AUTO_INCREMENT, `protect_enabled` TEXT(50) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `tblrelaytransactions` (`id` int(2) NOT NULL AUTO_INCREMENT, `gpiopin` int(2) NOT NULL, `device` TEXT(50) NOT NULL, `switchmode` int(2) NOT NULL, `triggersource` TEXT(10), `timestamp` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+INSERT INTO tblpins VALUES (1,17);
+INSERT INTO tblpins VALUES (2,27); 
+INSERT INTO tblpins VALUES (3,22);
+INSERT INTO tblpins VALUES (4,5);
+INSERT INTO tblpins VALUES (5,18);
+INSERT INTO tblpins VALUES (6,23);
+INSERT INTO tblpins VALUES (7,24);
+INSERT INTO tblpins VALUES (8,25);
+INSERT INTO tblpins VALUES (9,12);
+INSERT INTO tblpins VALUES (10,13);
+INSERT INTO tblpins VALUES (11,19);
+INSERT INTO tblpins VALUES (12,26);
+
+
+
+INSERT INTO tbldevices VALUES (1, "Motor");
+INSERT INTO tbldevices VALUES (2, "Pedestal Fan");
+INSERT INTO tbldevices VALUES (3, "CFL");
+INSERT INTO tbldevices VALUES (4, "Cooler");
+INSERT INTO tbldevices VALUES (5, "Chanting Machine");
+INSERT INTO tbldevices VALUES (6, "Bulb Cluster");
+INSERT INTO tbldevices VALUES (7, "Incasedent Bulb");
+INSERT INTO tbldevices VALUES (8, "LED Lamp");
+INSERT INTO tbldevices VALUES (9, "Jot Diya");
+INSERT INTO tbldevices VALUES (10, "Table Fan");
+INSERT INTO tbldevices VALUES (11, "Ceiling Fan");
+INSERT INTO tbldevices VALUES (12, "Tube Light");
+
+
+INSERT INTO tblsurgeprotection VALUES (1, "Surge Protection - IC");
+INSERT INTO tblsurgeprotection VALUES (2, "Surge Protection - IC");
+INSERT INTO tblsurgeprotection VALUES (3, "Surge Protection - IC");
+INSERT INTO tblsurgeprotection VALUES (4, "Surge Protection - IC");
+INSERT INTO tblsurgeprotection VALUES (5, "Unprotected");
+INSERT INTO tblsurgeprotection VALUES (6, "Unprotected");
+INSERT INTO tblsurgeprotection VALUES (7, "Unprotected");
+INSERT INTO tblsurgeprotection VALUES (8, "Unprotected");
+INSERT INTO tblsurgeprotection VALUES (9, "Surge Protection - RC");
+INSERT INTO tblsurgeprotection VALUES (10, "Surge Protection - RC");
+INSERT INTO tblsurgeprotection VALUES (11, "Surge Protection - RC");
+INSERT INTO tblsurgeprotection VALUES (12, "Surge Protection - RC");
+

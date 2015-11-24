@@ -1,0 +1,19 @@
+gpio -g mode 17 in
+gpio -g mode 27 in
+gpio -g mode 22 in
+gpio -g mode 05 in
+// Problem pin - Floating gpio -g mode 06 in
+gpio -g mode 12 in
+gpio -g mode 13 in
+gpio -g mode 19 in
+gpio -g mode 26 in
+gpio -g mode 18 in
+gpio -g mode 23 in
+gpio -g mode 24 in
+gpio -g mode 25 in 
+gpio -g mode 12 in
+gpio -g mode 16 in
+gpio -g mode 20 in
+gpio -g mode 21 in
+
+

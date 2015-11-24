@@ -1,0 +1,27 @@
+
+
+/* Elementz 4 Relay Module - Right Side */
+gpio -g write 17 0
+gpio -g write 27 0
+gpio -g write 22 0
+gpio -g write 05 0
+
+/* Sainsmart 4 Relay Module - Center */
+// Problem pin - floating gpio -g write 06 0  
+gpio -g write 12 0
+gpio -g write 13 0
+gpio -g write 19 0
+gpio -g write 26 0
+
+/* Sainsmart 4 Relay Module - With RC Snubber - Left Side */
+gpio -g write 18 0
+gpio -g write 23 0
+gpio -g write 24 0
+gpio -g write 25 0
+
+/* This is reserved for Audrino */
+gpio -g write 12 0
+gpio -g write 16 0
+gpio -g write 20 0
+gpio -g write 21 0
+

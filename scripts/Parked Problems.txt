@@ -1,0 +1,2 @@
+Problem 1 - Pin 6 floating when input mode. Why ??
+Problem 2 - 12 V IC Relay -> Transistor Emitters floating, relay working. Why ??

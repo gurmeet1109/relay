@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCT vbYPE html>
 <!-- This is enhanced version of TheFreeElectron 2015, http://www.instructables.com/member/TheFreeElectron/ -->
 
 <html>
@@ -119,7 +119,7 @@
 	}
 
 	date_default_timezone_set('Asia/Calcutta');
-	echo date('Y-m-d')."\n";	
+	echo date('Y-m-d')."  ".date('h:i:s')."\n";	
 
 	echo ("<table>\n");
 	echo (" <font color=\"blue\" size=\"2\">\n");
