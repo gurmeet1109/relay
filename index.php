@@ -161,11 +161,9 @@
 		echo ( "</td>" );
 		
 		//Database transaction insert
-//		$insert = conn->query("INSERT INTO tblrelaytransactions (instanceid, gpiopin, device, switchmode, triggersource, timestamp)
-//		 VALUES ($instanceid, $pin_array[$i], 'Motor', '1', 'Web Interface', NOW())");
+		$insert = $conn->query("INSERT INTO tblrelaytransactions (instanceid, gpiopin, device, switchmode, triggersource, timestamp)
+		 VALUES ('$instanceid', $pin_array[$i], 'Motor', 1, 'Web Interface', NOW())");
 
-//		$insert = conn->query("INSERT INTO tblrelaytransactions (instanceid, gpiopin, device, switchmode, triggersource, timestamp) VALUES ('123', 
-// '13', 'Motor', 1, 'Web Interface', NOW())");
 
 	}
 
