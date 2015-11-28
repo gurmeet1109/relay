@@ -1,6 +1,6 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin
 
-pin=13
+pin=$1
 swmode=0
 
 set > /home/alarm/relay/cronlogs/cronlog_sw$pin"off"

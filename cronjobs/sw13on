@@ -1,5 +1,28 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin
-set > /home/alarm/relay/cronlogs/cronlog_sw13on
-gpio -g mode 13 OUT
-gpio -g write 13 1
 
+pin=13
+swmode=1
+
+set > /home/alarm/relay/cronlogs/cronlog_sw$pin"on"
+
+instid=`../scripts/generateinstanceid.sh`
+timestm=`date`
+
+
+# GPIO manipulation - Actual switching of device
+gpio -g mode $pin OUT
+gpio -g write $pin 1
+
+
+# Read device name from database for the passed pin number
+devicename=$(mysql -uroot -pwelcome relaydb -se "SELECT devices FROM tbldevices WHERE connectedrelayport =(SELECT connectedrelayport from tblpins where 
+pins=$pin)");
+
+
+# Insert event into database
+mysql -uroot -pwelcome relaydb <<EOF
+INSERT INTO tblrelaytransactions (instanceid, gpiopin, device, switchmode, triggersource, timestamp)
+                VALUES ('$instid', '$pin', '$devicename', '$swmode', 'Scheduler', NOW());
+EOF
+
+echo "$devicename switched ON"

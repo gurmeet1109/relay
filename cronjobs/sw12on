@@ -1,5 +1,0 @@
-PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin
-set > /home/alarm/relay/cronlogs/cronlog_sw12on
-gpio -g mode 12 OUT
-gpio -g write 12 1
-
