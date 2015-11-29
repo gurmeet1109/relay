@@ -1,0 +1,16 @@
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin
+
+pin=5
+
+# Read device name from database for the passed pin number
+devicename=$(mysql -uroot -pwelcome relaydb -se "SELECT devices FROM tbldevices WHERE connectedrelayport =(SELECT connectedrelayport from tblpins where 
+pins=$pin)");
+
+#echo $devicename
+
+# Calculate and echo time diff in seconds
+timediff=$(mysql -uroot -pwelcome relaydb -se "select timestampdiff(second, (select timestamp from tblrelaytransactions where gpiopin=$pin AND switchmode=1 
+ORDER BY timestamp DESC LIMIT 1), (select timestamp from tblrelaytransactions where gpiopin=$pin AND switchmode=0 ORDER BY timestamp DESC LIMIT 1))");
+
+echo $timediff
+#echo "Seconds :  $timediff"
