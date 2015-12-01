@@ -5,7 +5,7 @@ swmode=0
 
 set > /home/alarm/relay/cronlogs/cronlog_sw$pin"off"
 
-instid=`../scripts/generateinstanceid.sh`
+instid=`/home/alarm/relay/scripts/generateinstanceid.sh`
 timestm=`date`
 
 

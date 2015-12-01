@@ -5,9 +5,9 @@ swmode=1
 
 set > /home/alarm/relay/cronlogs/cronlog_sw$pin"on"
 
-instid=`../scripts/generateinstanceid.sh`
+instid=`/home/alarm/relay/scripts/generateinstanceid.sh`
 timestm=`date`
-
+echo $instid
 
 # GPIO manipulation - Actual switching of device
 gpio -g mode $pin OUT
@@ -25,4 +25,4 @@ INSERT INTO tblrelaytransactions (instanceid, gpiopin, device, switchmode, trigg
                 VALUES ('$instid', '$pin', '$devicename', '$swmode', 'Scheduler', NOW());
 EOF
 
-echo "$devicename switched ON"
+#echo "$devicename switched ON"
