@@ -72,3 +72,22 @@ Report duration (seconds) GROUP BY device
 SELECT a.gpiopin, a.device, sum(timestampdiff(second, a.timestamp, b.timestamp)) as duration from tblarchivedrelaytrans a INNER JOIN tblarchivedrelaytrans b on 
 a.gpiopin = b.gpiopin AND a.switchmode = 1 and b.switchmode = 0 AND b.timestamp = (SELECT min(timestamp) from tblarchivedrelaytrans where gpiopin = a.gpiopin AND timestamp > a.timestamp) group by device ORDER BY duration DESC, device ASC;
 
+
+
+Unique set of devices - For loop
+------------------
+select distinct device from tblrelaytransactions ORDER BY device ASC;
+
+All transactions ordered by device
+-------------------------------------
+ select * from tblrelaytransactions where device IN (select distinct device from tblrelaytransactions GROUP BY device ) ORDER BY device ASC ;
+
+Max and min Id Group BY Device
+---------------------------------
+select * from tblrelaytransactions WHERE switchmode = 1 GROUP BY device ORDER BY id DESC;
+
+
+Works for single max entires
+-----------------------------
+Select timestampdiff(minute, (select timestamp from tblrelaytransactions a where switchmode = 1 ORDER BY ID DESC LIMIT 1), (select timestamp from tblrelaytransactions b WHERE switchmode = 0 ORDER BY ID DESC LIMIT 1));
+
