@@ -65,6 +65,21 @@ INSERT INTO tblsurgeprotection VALUES (10, 10, "Surge Protection - RC");
 INSERT INTO tblsurgeprotection VALUES (11, 11, "Surge Protection - RC");
 INSERT INTO tblsurgeprotection VALUES (12, 12, "Surge Protection - RC");
 
+INSERT INTO tbldevicewattage (device) (SELECT devices FROM tbldevices ORDER BY devices ASC);
+update tbldevicewattage set wattage = 15 where device = "Bulb Cluster";
+update tbldevicewattage set wattage = 40 where device = "Ceiling Fan";
+update tbldevicewattage set wattage = 15 where device = "CFL";
+update tbldevicewattage set wattage = 30 where device = "Chanting Machine";
+update tbldevicewattage set wattage = 60 where device = "Cooler";
+update tbldevicewattage set wattage = 25 where device = "Incasedent Bulb";
+update tbldevicewattage set wattage = 5 where device = "Jot Diya";
+update tbldevicewattage set wattage = 8 where device = "LED Lamp";
+update tbldevicewattage set wattage = 375 where device = "Motor";
+update tbldevicewattage set wattage = 60 where device = "Pedestal Fan";
+update tbldevicewattage set wattage = 45 where device = "Table Fan";
+update tbldevicewattage set wattage = 405 where device = "Tube Light";
+
+
 
 
 Aggregate Queries
