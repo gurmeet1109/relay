@@ -1,6 +1,6 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin
 
-set > /home/alarm/relay/cronlogs/cronlog_sw$pin"on"
+set > /home/alarm/relay/cronlogs/archiverlytrans
 
 instid=`/home/alarm/relay/scripts/generateinstanceid.sh`
 timestm=`date`
