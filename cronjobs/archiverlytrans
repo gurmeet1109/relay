@@ -4,8 +4,6 @@ set > /home/alarm/relay/cronlogs/archiverlytrans
 
 instid=`/home/alarm/relay/scripts/generateinstanceid.sh`
 timestm=`date`
-# echo "Instance Id - "$instid
-
 
 # Copy relay events into database archive table
 mysql -uroot -pwelcome relaydb <<EOF
@@ -15,7 +13,7 @@ SET autocommit=0;
 START TRANSACTION;
 INSERT INTO tblarchivedrelaytrans (instanceid, gpiopin, device, switchmode, triggersource, timestamp)
   SELECT instanceid, gpiopin, device, switchmode, triggersource, timestamp from tblrelaytransactions;
-TRUNCATE tblarchivedrelaytrans;
+TRUNCATE tblrelaytransactions;
 COMMIT;            
 
 EOF
