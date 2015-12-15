@@ -11,13 +11,13 @@ echo "Instance Id - "$instid
 mysql -uroot -pwelcome relaydb <<EOF
 
 SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
-SET autcommit=0;
+SET autocommit=0;
 START TRANSACTION;
 INSERT INTO tblarchivedrelaytrans (instanceid, gpiopin, device, switchmode, triggersource, timestamp)
   SELECT instanceid, gpiopin, device, switchmode, triggersource, timestamp from tblrelaytransactions;
-TRUNCATE tblrelaytransactions;
+
 COMMIT;            
 
 EOF
 
-echo "Relay transactions for Instance $instid archived at $timestm"
+echo "Relay transactions for Instance Id $instid archived at $timestm"
