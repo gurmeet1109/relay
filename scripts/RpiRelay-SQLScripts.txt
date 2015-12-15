@@ -77,7 +77,7 @@ update tbldevicewattage set wattage = 8 where device = "LED Lamp";
 update tbldevicewattage set wattage = 375 where device = "Motor";
 update tbldevicewattage set wattage = 60 where device = "Pedestal Fan";
 update tbldevicewattage set wattage = 45 where device = "Table Fan";
-update tbldevicewattage set wattage = 405 where device = "Tube Light";
+update tbldevicewattage set wattage = 40 where device = "Tube Light";
 
 
 
