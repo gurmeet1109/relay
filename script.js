@@ -23,12 +23,13 @@ var Buttons = [ button_0, button_1, button_2, button_3, button_4, button_5, butt
 
 //This function is asking for gpio.php, receiving datas and updating the index.php pictures
 function change_pin ( pin ) {
-var data = 0;
-var position = 0;
-//send the pic number to gpio.php for changes
-//this is the http request
+	var data = 0;
+	var position = 0;
+	nocache = "&nocache=" + Math.random()*1000000;
+	//send the pic number to gpio.php for changes
+	//this is the http request
 	var request = new XMLHttpRequest();
-	request.open( "GET" , "gpio.php?pin=" + pin, true);
+	request.open( "GET" , "gpio.php?pin=" + pin + "&nocache=" +  nocache, true);
 	request.send(null);
 	//receiving informations
 	request.onreadystatechange = function () {

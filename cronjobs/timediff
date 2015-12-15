@@ -1,6 +1,6 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin
 
-pin=5
+pin=13
 
 # Read device name from database for the passed pin number
 devicename=$(mysql -uroot -pwelcome relaydb -se "SELECT devices FROM tbldevices WHERE connectedrelayport =(SELECT connectedrelayport from tblpins where 

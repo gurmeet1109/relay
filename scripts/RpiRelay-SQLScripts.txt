@@ -15,6 +15,8 @@ CREATE TABLE `tblsurgeprotection` (`id` int(2) NOT NULL AUTO_INCREMENT, `connect
 (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 CREATE TABLE `tblrelaytransactions` (`id` int(2) NOT NULL AUTO_INCREMENT, `instanceid` text(50), `gpiopin` int(2) NOT NULL, `device` TEXT(50) NOT 
 NULL, `switchmode` int(2) NOT NULL, `triggersource` TEXT(10), `timestamp` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `tblarchivedrelaytrans` (`id` int(20) NOT NULL AUTO_INCREMENT, `instanceid` tinytext, `gpiopin` int(2) NOT NULL,  `device` tinytext NOT NULL,
+  `switchmode` int(2) NOT NULL, `triggersource` tinytext, `timestamp` datetime DEFAULT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 INSERT INTO tblpins VALUES (1, 1, 17);
