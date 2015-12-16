@@ -110,3 +110,44 @@ Works for single max entires
 -----------------------------
 Select timestampdiff(minute, (select timestamp from tblrelaytransactions a where switchmode = 1 ORDER BY ID DESC LIMIT 1), (select timestamp from tblrelaytransactions b WHERE switchmode = 0 ORDER BY ID DESC LIMIT 1));
 
+
+
+Stored Procedures
+----------------------
+----------------------
+
+DROP PROCEDURE IF EXISTS sp_summarizedbill;
+DELIMITER //
+CREATE PROCEDURE sp_summarizedbill()
+BEGIN
+DROP TABLE IF EXISTS tmpcalcduration;
+CREATE TABLE tmpcalcduration AS
+SELECT a.gpiopin, a.device, SUM(TIMESTAMPDIFF(SECOND, a.timestamp, b.timestamp)) AS duration FROM tblarchivedrelaytrans a INNER JOIN   tblarchivedrelaytrans b 
+on a.gpiopin = b.gpiopin AND a.switchmode = 1 and b.switchmode = 0 AND b.timestamp = (SELECT min(timestamp) FROM tblarchivedrelaytrans WHERE gpiopin = a.gpiopin 
+AND timestamp > a.timestamp) GROUP BY device ORDER BY duration DESC, device ASC ;
+SELECT a.gpiopin, a.device, a.duration, w.wattage, (a.duration*w.wattage*9)/(1000*3600) AS bill FROM tmptable a JOIN tbldevicewattage w on a.device = w.device;
+DROP TABLE tmpcalcduration;
+END //
+DELIMITER ;
+
+
+DROP PROCEDURE IF EXISTS sp_generatecompletebill;
+DELIMITER //
+CREATE PROCEDURE sp_generatecompletebill()
+BEGIN
+DROP TABLE IF EXISTS tmpcalcduration, tmpcalcbill;
+CREATE TABLE tmpcalcduration AS
+SELECT a.gpiopin, a.device, SUM(TIMESTAMPDIFF(SECOND, a.timestamp, b.timestamp)) AS duration FROM tblarchivedrelaytrans a INNER JOIN   tblarchivedrelaytrans b 
+on a.gpiopin = b.gpiopin AND a.switchmode = 1 and b.switchmode = 0 AND b.timestamp = (SELECT min(timestamp) FROM tblarchivedrelaytrans WHERE gpiopin = a.gpiopin 
+AND timestamp > a.timestamp) GROUP BY device ORDER BY duration DESC, device ASC ;
+CREATE TABLE tmpcalcbill AS 
+SELECT a.gpiopin, a.device, a.duration, w.wattage, (a.duration*w.wattage*9)/(1000*3600) AS bill FROM tmpcalcduration a JOIN tbldevicewattage w on a.device = 
+w.device;
+SELECT * FROM tmpcalcbill;
+SELECT SUM(bill) AS Total from tmpcalcbill;
+DROP TABLE tmpcalcduration, tmpcalcbill;
+END //
+DELIMITER ;
+
+
+
