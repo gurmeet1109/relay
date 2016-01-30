@@ -120,9 +120,9 @@ Stored Procedures
 ----------------------
 ----------------------
 
-DROP PROCEDURE IF EXISTS sp_summarizedbill;
+DROP PROCEDURE IF EXISTS sp_generatesummarizedbill;
 DELIMITER //
-CREATE PROCEDURE sp_summarizedbill()
+CREATE PROCEDURE sp_generatesummarizedbill()
 BEGIN
 DROP TABLE IF EXISTS tmpcalcduration;
 CREATE TABLE tmpcalcduration AS
@@ -156,3 +156,8 @@ DELIMITER ;
 
 
 
+# Indexes
+# ------------------------------------------------------------------
+# ------------------------------------------------------------------
+ 
+create index indx_gpiopin on tblarchivedrelaytrans(gpiopin);
