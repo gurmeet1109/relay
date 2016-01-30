@@ -105,6 +105,10 @@ Max and min Id Group BY Device
 ---------------------------------
 select * from tblrelaytransactions WHERE switchmode = 1 GROUP BY device ORDER BY id DESC;
 
+Show highest device used 
+--------------------------
+select device, count(device) from tblarchivedrelaytrans  group by device ORDER BY count(device) DESC;
+
 
 Works for single max entires
 -----------------------------
