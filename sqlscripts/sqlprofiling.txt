@@ -1,0 +1,7 @@
+# call this within mysql / mariadb connection
+
+set profiling=0;
+set profiling_history_size=0;
+set profiling_history_size=100;
+set profiling=1;
+

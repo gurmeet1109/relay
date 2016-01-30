@@ -129,7 +129,8 @@ CREATE TABLE tmpcalcduration AS
 SELECT a.gpiopin, a.device, SUM(TIMESTAMPDIFF(SECOND, a.timestamp, b.timestamp)) AS duration FROM tblarchivedrelaytrans a INNER JOIN   tblarchivedrelaytrans b 
 on a.gpiopin = b.gpiopin AND a.switchmode = 1 and b.switchmode = 0 AND b.timestamp = (SELECT min(timestamp) FROM tblarchivedrelaytrans WHERE gpiopin = a.gpiopin 
 AND timestamp > a.timestamp) GROUP BY device ORDER BY duration DESC, device ASC ;
-SELECT a.gpiopin, a.device, a.duration, w.wattage, (a.duration*w.wattage*9)/(1000*3600) AS bill FROM tmptable a JOIN tbldevicewattage w on a.device = w.device;
+SELECT a.gpiopin, a.device, a.duration, w.wattage, (a.duration*w.wattage*9)/(1000*3600) AS bill FROM tmpcalcduration a JOIN tbldevicewattage w on a.device = 
+w.device;
 DROP TABLE tmpcalcduration;
 END //
 DELIMITER ;
