@@ -1,0 +1,6 @@
+
+datevar=`date -Is`
+mysqldump -u root -pwelcome --routines relaydb > ../dbdumps/mysql/mysqldump_relaydb_$datevar.sql
+
+# mysqladmin -u root -p create testdb
+# mysql -u root -p testdb < ../dbdumps/mysql/mysqldump_relaydb_2016_01_31.sql
